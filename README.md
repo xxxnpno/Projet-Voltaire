@@ -9,4 +9,4 @@
 
 ## Recommended Tools
 
-For enhanced functionality, it is recommended to use **Microsoft PowerToys** (or a similar tool) alongside Projet Voltaire. PowerToys includes a feature for extracting text from images, making it easy to correct strings from screenshots or scanned documents.
+For enhanced functionality, it is recommended to use **Microsoft PowerToys** (or a similar tool) alongside Projet Voltaire. PowerToys includes a feature for extracting text from images, making it easy to correct strings from screenshots.
