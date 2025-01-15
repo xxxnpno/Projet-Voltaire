@@ -6,3 +6,7 @@
 
 - **Real-time Clipboard Monitoring**: Continuously watches the clipboard for text content.
 - **Automated Grammar and Spelling Correction**: Sends clipboard strings to the Reverso API and retrieves corrected text.
+
+## Recommended Tools
+
+For enhanced functionality, it is recommended to use **Microsoft PowerToys** (or a similar tool) alongside Projet Voltaire. PowerToys includes a feature for extracting text from images, making it easy to correct strings from screenshots or scanned documents.
