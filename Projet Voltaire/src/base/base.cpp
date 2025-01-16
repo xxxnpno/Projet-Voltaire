@@ -2,23 +2,31 @@
 
 void Base::Init()
 {
-    ClipBoard cb;
-    m_CurrentClipboard = cb.GetClipboard();
+    Extract e;
+    Clipboard cb;
+
+    e.Init();
+    cb.SaveClipboardImage();
+    
+    m_CurrentClipboard = FixString(e.ExtractText());
 }
 
 void Base::Loop()
-{
-    ClipBoard cb;
+{    
     Network net;
     Parse par;
+    Extract e;
+    Clipboard cb;
 
-    std::string input = cb.GetClipboard();
-    if (input == "ERROR_OPENING_CLIPBOARD" || m_CurrentClipboard == "ERROR_OPENING_CLIPBOARD") return;
+    cb.SaveClipboardImage();
+
+    std::string input = FixString(e.ExtractText());
+
     if (input == m_CurrentClipboard) return;
 
     m_CurrentClipboard = input;
 
-    const std::string response = net.POST(m_ApiUrl, m_PostHelp + m_CurrentClipboard + m_PreHelp);
+    const std::string response = net.POST(m_ApiUrl, m_Jsp1 + m_CurrentClipboard + m_Jsp2);
 
     std::string output = par.ParseResponse(response);
 
@@ -54,8 +62,19 @@ void Base::Loop()
     std::cout << "==========================" << std::endl;
 }
 
-void Base::SetColor(int textColor, int bgColor)
+void Base::SetColor(const size_t textColor, const size_t bgColor)
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, (bgColor << 4) | textColor);
+}
+
+std::string Base::FixString(const std::string& input)
+{
+    std::string output = input;
+    for (char& c : output) {
+        if (c == '\n') {
+            c = ' ';
+        }
+    }
+    return output;
 }

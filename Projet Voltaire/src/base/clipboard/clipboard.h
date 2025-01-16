@@ -1,15 +1,16 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 #include <string>
-#include <algorithm>
 #include <windows.h>
 
-class ClipBoard
+class Clipboard
 {
 public:
-    std::string GetClipboard();
+    static void SaveClipboardImage();
 
 private:
-    std::string FixClipboardString(const std::string& clipboardText);
+    inline static const std::string m_OutputPath = "ext/image/";
+    inline static const std::string m_PngPath = "ext/image/image.png";
 };

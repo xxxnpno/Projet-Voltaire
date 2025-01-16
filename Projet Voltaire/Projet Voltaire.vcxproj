@@ -115,6 +115,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +132,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,12 +148,17 @@
     <ClCompile Include="src\base\main\main.cpp" />
     <ClCompile Include="src\base\network\net.cpp" />
     <ClCompile Include="src\base\parsing\parse.cpp" />
+    <ClCompile Include="src\base\tesseract\extract.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\base\base.h" />
     <ClInclude Include="src\base\clipboard\clipboard.h" />
     <ClInclude Include="src\base\network\net.h" />
     <ClInclude Include="src\base\parsing\parse.h" />
+    <ClInclude Include="src\base\tesseract\extract.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ext\lang\fra.traineddata" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
