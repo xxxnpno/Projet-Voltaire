@@ -1,12 +1,11 @@
 # Projet Voltaire
 
-**Projet Voltaire** is a clipboard monitoring program that automatically detects strings in your clipboard and sends them to the Reverso API for grammar and spelling corrections. The project uses `cURL` for HTTP requests and `nlohmann/json` for JSON parsing. It also utilizes the Tesseract API to extract strings from screenshots.
+**Projet Voltaire** is a clipboard monitoring program that automatically detects strings in your last clipboard image and sends them to the Reverso API for grammar and spelling corrections. The project uses `cURL` for HTTP requests and `nlohmann/json` for JSON parsing. It also utilizes the Tesseract API to extract strings from screenshots.
 
 ## Features
 
-- **Real-time Clipboard Monitoring**: Continuously watches the clipboard for text content.
-- **Automated Grammar and Spelling Correction**: Sends clipboard strings to the Reverso API and retrieves corrected text.
 - **Screenshot Text Extraction**: Use the shortcut **Shift + Windows + S** to capture a screenshot and automatically extract text for correction via the Tesseract API.
+- **Automated Grammar and Spelling Correction**: Sends clipboard strings to the Reverso API and retrieves corrected text.
 
 ## Requirements
 
