@@ -144,21 +144,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\base\base.cpp" />
-    <ClCompile Include="src\base\clipboard\clipboard.cpp" />
+    <ClCompile Include="src\base\clipboard\screen.cpp" />
     <ClCompile Include="src\base\main\main.cpp" />
     <ClCompile Include="src\base\network\net.cpp" />
     <ClCompile Include="src\base\parsing\parse.cpp" />
     <ClCompile Include="src\base\tesseract\extract.cpp" />
+    <ClCompile Include="src\base\utils\logger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\base\base.h" />
-    <ClInclude Include="src\base\clipboard\clipboard.h" />
+    <ClInclude Include="src\base\clipboard\screen.h" />
+    <ClInclude Include="src\base\main\main.h" />
     <ClInclude Include="src\base\network\net.h" />
     <ClInclude Include="src\base\parsing\parse.h" />
     <ClInclude Include="src\base\tesseract\extract.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ext\lang\fra.traineddata" />
+    <ClInclude Include="src\base\utils\logger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

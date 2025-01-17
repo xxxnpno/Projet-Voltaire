@@ -1,15 +1,28 @@
-#include "../../src/base/base.h"
+#include "main.h"
 
-int main()
+void Main::Init()
 {
     SetConsoleOutputCP(CP_UTF8);
 
-    Base b;
-    b.Init();
+    std::cout << Logger::Info() << "Press Enter when you are ready" << std::endl;
+    while (!GetAsyncKeyState(VK_RETURN));
+    std::this_thread::sleep_for(std::chrono::microseconds(100));
 
-    while (!GetAsyncKeyState(VK_DELETE))
+    Base::Init();
+}
+
+void Main::Loop()
+{
+    while (true)
     {
-        b.Loop();
-        std::this_thread::sleep_for(std::chrono::microseconds(100));
+        Sleep(500);
+        Base::Loop();
     }
+}
+
+int main()
+{
+    Main::Init();
+
+    Main::Loop();
 }
