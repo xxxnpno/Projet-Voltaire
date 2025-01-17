@@ -1,18 +1,33 @@
 # Projet Voltaire
 
-**Projet Voltaire** is a clipboard monitoring program that automatically detects strings in your last clipboard image and sends them to the Reverso API for grammar and spelling corrections. The project uses `cURL` for HTTP requests and `nlohmann/json` for JSON parsing. It also utilizes the Tesseract API to extract strings from screenshots.
+**Projet Voltaire** est un logiciel en C++ conçu pour faciliter la correction orthographique en utilisant la reconnaissance de texte. Il extrait le texte d'une zone spécifique de l'écran et vérifie les erreurs d'orthographe grâce à l'API Reverso. Ce programme fonctionne exclusivement sous Windows et utilise les bibliothèques cURL, nlohmann et l'API Tesseract pour l'extraction et la correction de texte.
 
-## Features
+## Fonctionnalités
 
-- **Screenshot Text Extraction**: Use the shortcut **Shift + Windows + S** to capture a screenshot and automatically extract text for correction via the Tesseract API.
-- **Automated Grammar and Spelling Correction**: Sends clipboard strings to the Reverso API and retrieves corrected text.
+- **Extraction de texte** : Capture du texte à partir d'une zone définie de l'écran toutes les 500 ms.
+- **Correction orthographique** : Envoi du texte extrait à l'API Reverso pour la détection et la correction des erreurs d'orthographe.
+- **Affichage des erreurs** : Les erreurs d'orthographe sont affichées directement dans le terminal pour permettre une correction rapide.
+- **Langue supportée** : Le programme fonctionne uniquement en français.
+- **Garantie de réussite** : Taux de précision estimé à 80%. Des erreurs peuvent subsister, il est donc conseillé de vérifier les résultats.
 
-## Requirements
+## Installation
 
-- No need for PowerToys anymore. Simply use **Shift + Windows + S** to capture and extract text from the screen.
+1. Téléchargez et placez le fichier `.exe` dans le dossier de votre choix.
+2. Assurez-vous d'avoir le fichier `fra.traineddata` (fichier de langue nécessaire pour Tesseract) dans le même dossier que l'exécutable.
 
-## How to Use
+## Utilisation
 
-1. Press **Shift + Windows + S** to take a screenshot.
-2. The text will be automatically extracted using Tesseract and sent to the Reverso API for grammar and spelling corrections.
-3. The corrected text will be shown in the terminal after processing.
+1. **Lancez l'exécutable** : Exécutez le fichier `.exe` pour démarrer le programme.
+2. **Définissez la zone de capture** : Sélectionnez une zone spécifique de l'écran à partir de laquelle le texte sera extrait toutes les 500 ms.
+3. **Correction automatique** : Le texte extrait est envoyé à l'API Reverso pour être corrigé.
+4. **Vérification des erreurs** : Les erreurs d'orthographe sont affichées directement dans le terminal pour être consultées et corrigées.
+
+## Remarques
+
+- Le programme est conçu pour fonctionner uniquement sous **Windows**.
+- Bien que la précision soit élevée, il reste possible que des erreurs surviennent dans certains cas. **Vérifiez toujours les résultats** pour une correction optimale.
+- Le projet est en développement continu. N'hésitez pas à **contribuer**, à signaler des bugs ou à proposer des améliorations.
+
+## Contribution
+
+Vous pouvez contribuer au projet en **soumettant des issues** pour signaler des bugs ou en proposant des **pull requests** pour ajouter de nouvelles fonctionnalités ou améliorer les performances.
