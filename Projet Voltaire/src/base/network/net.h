@@ -2,9 +2,9 @@
 
 #include "../../src/base/utils/logger.h"
 
-#include "curl/curl.h"
-
 #include <string>
+
+#include "../../ext/curl/curl.h"
 
 class Network
 {

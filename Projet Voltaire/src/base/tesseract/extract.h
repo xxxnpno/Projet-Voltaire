@@ -4,8 +4,8 @@
 
 #include <string>
 
-#include <tesseract/baseapi.h>
-#include <leptonica/allheaders.h>
+#include "../../ext/tesseract/baseapi.h"
+#include "../../ext/leptonica/allheaders.h"
 
 class Extract
 {

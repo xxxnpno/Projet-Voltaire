@@ -112,7 +112,8 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -120,7 +121,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Wldap32.lib;Crypt32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,7 +130,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -139,24 +141,327 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Wldap32.lib;Crypt32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\base\base.cpp" />
-    <ClCompile Include="src\base\clipboard\screen.cpp" />
     <ClCompile Include="src\base\main\main.cpp" />
     <ClCompile Include="src\base\network\net.cpp" />
-    <ClCompile Include="src\base\parsing\parse.cpp" />
+    <ClCompile Include="src\base\parsing\reverso\reverso.cpp" />
+    <ClCompile Include="src\base\screen\screen.cpp" />
     <ClCompile Include="src\base\tesseract\extract.cpp" />
     <ClCompile Include="src\base\utils\logger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ext\curl\curl.h" />
+    <ClInclude Include="ext\curl\curlver.h" />
+    <ClInclude Include="ext\curl\easy.h" />
+    <ClInclude Include="ext\curl\header.h" />
+    <ClInclude Include="ext\curl\mprintf.h" />
+    <ClInclude Include="ext\curl\multi.h" />
+    <ClInclude Include="ext\curl\options.h" />
+    <ClInclude Include="ext\curl\stdcheaders.h" />
+    <ClInclude Include="ext\curl\system.h" />
+    <ClInclude Include="ext\curl\typecheck-gcc.h" />
+    <ClInclude Include="ext\curl\urlapi.h" />
+    <ClInclude Include="ext\curl\websockets.h" />
+    <ClInclude Include="ext\leptonica\allheaders.h" />
+    <ClInclude Include="ext\leptonica\alltypes.h" />
+    <ClInclude Include="ext\leptonica\array.h" />
+    <ClInclude Include="ext\leptonica\arrayaccess.h" />
+    <ClInclude Include="ext\leptonica\array_internal.h" />
+    <ClInclude Include="ext\leptonica\bbuffer.h" />
+    <ClInclude Include="ext\leptonica\bilateral.h" />
+    <ClInclude Include="ext\leptonica\bmf.h" />
+    <ClInclude Include="ext\leptonica\bmfdata.h" />
+    <ClInclude Include="ext\leptonica\bmp.h" />
+    <ClInclude Include="ext\leptonica\ccbord.h" />
+    <ClInclude Include="ext\leptonica\ccbord_internal.h" />
+    <ClInclude Include="ext\leptonica\colorfill.h" />
+    <ClInclude Include="ext\leptonica\dewarp.h" />
+    <ClInclude Include="ext\leptonica\endianness.h" />
+    <ClInclude Include="ext\leptonica\environ.h" />
+    <ClInclude Include="ext\leptonica\gplot.h" />
+    <ClInclude Include="ext\leptonica\hashmap.h" />
+    <ClInclude Include="ext\leptonica\heap.h" />
+    <ClInclude Include="ext\leptonica\imageio.h" />
+    <ClInclude Include="ext\leptonica\jbclass.h" />
+    <ClInclude Include="ext\leptonica\leptwin.h" />
+    <ClInclude Include="ext\leptonica\list.h" />
+    <ClInclude Include="ext\leptonica\morph.h" />
+    <ClInclude Include="ext\leptonica\pix.h" />
+    <ClInclude Include="ext\leptonica\pix_internal.h" />
+    <ClInclude Include="ext\leptonica\ptra.h" />
+    <ClInclude Include="ext\leptonica\queue.h" />
+    <ClInclude Include="ext\leptonica\rbtree.h" />
+    <ClInclude Include="ext\leptonica\readbarcode.h" />
+    <ClInclude Include="ext\leptonica\recog.h" />
+    <ClInclude Include="ext\leptonica\regutils.h" />
+    <ClInclude Include="ext\leptonica\stack.h" />
+    <ClInclude Include="ext\leptonica\stringcode.h" />
+    <ClInclude Include="ext\leptonica\sudoku.h" />
+    <ClInclude Include="ext\leptonica\watershed.h" />
+    <ClInclude Include="ext\nlohmann\adl_serializer.hpp" />
+    <ClInclude Include="ext\nlohmann\byte_container_with_subtype.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\abi_macros.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\conversions\from_json.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\conversions\to_chars.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\conversions\to_json.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\exceptions.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\hash.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\input\binary_reader.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\input\input_adapters.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\input\json_sax.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\input\lexer.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\input\parser.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\input\position_t.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\iterators\internal_iterator.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\iterators\iteration_proxy.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\iterators\iterator_traits.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\iterators\iter_impl.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\iterators\json_reverse_iterator.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\iterators\primitive_iterator.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\json_custom_base_class.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\json_pointer.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\json_ref.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\macro_scope.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\macro_unscope.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\call_std\begin.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\call_std\end.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\cpp_future.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\detected.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\identity_tag.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\is_sax.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\std_fs.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\type_traits.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\meta\void_t.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\output\binary_writer.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\output\output_adapters.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\output\serializer.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\string_concat.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\string_escape.hpp" />
+    <ClInclude Include="ext\nlohmann\detail\value_t.hpp" />
+    <ClInclude Include="ext\nlohmann\json.hpp" />
+    <ClInclude Include="ext\nlohmann\json_fwd.hpp" />
+    <ClInclude Include="ext\nlohmann\ordered_map.hpp" />
+    <ClInclude Include="ext\nlohmann\thirdparty\hedley\hedley.hpp" />
+    <ClInclude Include="ext\nlohmann\thirdparty\hedley\hedley_undef.hpp" />
+    <ClInclude Include="ext\tesseract\api\pdf_ttf.h" />
+    <ClInclude Include="ext\tesseract\arch\dotproduct.h" />
+    <ClInclude Include="ext\tesseract\arch\intsimdmatrix.h" />
+    <ClInclude Include="ext\tesseract\arch\simddetect.h" />
+    <ClInclude Include="ext\tesseract\baseapi.h" />
+    <ClInclude Include="ext\tesseract\capi.h" />
+    <ClInclude Include="ext\tesseract\ccmain\control.h" />
+    <ClInclude Include="ext\tesseract\ccmain\docqual.h" />
+    <ClInclude Include="ext\tesseract\ccmain\equationdetect.h" />
+    <ClInclude Include="ext\tesseract\ccmain\fixspace.h" />
+    <ClInclude Include="ext\tesseract\ccmain\mutableiterator.h" />
+    <ClInclude Include="ext\tesseract\ccmain\output.h" />
+    <ClInclude Include="ext\tesseract\ccmain\paragraphs.h" />
+    <ClInclude Include="ext\tesseract\ccmain\paragraphs_internal.h" />
+    <ClInclude Include="ext\tesseract\ccmain\paramsd.h" />
+    <ClInclude Include="ext\tesseract\ccmain\pgedit.h" />
+    <ClInclude Include="ext\tesseract\ccmain\reject.h" />
+    <ClInclude Include="ext\tesseract\ccmain\tesseractclass.h" />
+    <ClInclude Include="ext\tesseract\ccmain\tessvars.h" />
+    <ClInclude Include="ext\tesseract\ccmain\thresholder.h" />
+    <ClInclude Include="ext\tesseract\ccmain\werdit.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\blamer.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\blobbox.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\blobs.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\blread.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\boxread.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\boxword.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\ccstruct.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\coutln.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\crakedge.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\debugpixa.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\detlinefit.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\dppoint.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\fontinfo.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\image.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\imagedata.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\linlsq.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\matrix.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\mod128.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\normalis.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\ocrblock.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\ocrpara.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\ocrrow.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\otsuthr.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\pageres.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\params_training_featdef.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\pdblock.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\points.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\polyaprx.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\polyblk.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\quadlsq.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\quadratc.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\quspline.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\ratngs.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\rect.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\rejctmap.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\seam.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\split.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\statistc.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\stepblob.h" />
+    <ClInclude Include="ext\tesseract\ccstruct\werd.h" />
+    <ClInclude Include="ext\tesseract\ccutil\ambigs.h" />
+    <ClInclude Include="ext\tesseract\ccutil\bitvector.h" />
+    <ClInclude Include="ext\tesseract\ccutil\ccutil.h" />
+    <ClInclude Include="ext\tesseract\ccutil\clst.h" />
+    <ClInclude Include="ext\tesseract\ccutil\elst.h" />
+    <ClInclude Include="ext\tesseract\ccutil\elst2.h" />
+    <ClInclude Include="ext\tesseract\ccutil\errcode.h" />
+    <ClInclude Include="ext\tesseract\ccutil\fileerr.h" />
+    <ClInclude Include="ext\tesseract\ccutil\genericheap.h" />
+    <ClInclude Include="ext\tesseract\ccutil\genericvector.h" />
+    <ClInclude Include="ext\tesseract\ccutil\helpers.h" />
+    <ClInclude Include="ext\tesseract\ccutil\host.h" />
+    <ClInclude Include="ext\tesseract\ccutil\indexmapbidi.h" />
+    <ClInclude Include="ext\tesseract\ccutil\kdpair.h" />
+    <ClInclude Include="ext\tesseract\ccutil\list.h" />
+    <ClInclude Include="ext\tesseract\ccutil\lsterr.h" />
+    <ClInclude Include="ext\tesseract\ccutil\object_cache.h" />
+    <ClInclude Include="ext\tesseract\ccutil\params.h" />
+    <ClInclude Include="ext\tesseract\ccutil\qrsequence.h" />
+    <ClInclude Include="ext\tesseract\ccutil\scanutils.h" />
+    <ClInclude Include="ext\tesseract\ccutil\serialis.h" />
+    <ClInclude Include="ext\tesseract\ccutil\sorthelper.h" />
+    <ClInclude Include="ext\tesseract\ccutil\tessdatamanager.h" />
+    <ClInclude Include="ext\tesseract\ccutil\tesserrstream.h" />
+    <ClInclude Include="ext\tesseract\ccutil\tesstypes.h" />
+    <ClInclude Include="ext\tesseract\ccutil\tprintf.h" />
+    <ClInclude Include="ext\tesseract\ccutil\unicharcompress.h" />
+    <ClInclude Include="ext\tesseract\ccutil\unicharmap.h" />
+    <ClInclude Include="ext\tesseract\ccutil\unicharset.h" />
+    <ClInclude Include="ext\tesseract\ccutil\unicity_table.h" />
+    <ClInclude Include="ext\tesseract\ccutil\universalambigs.h" />
+    <ClInclude Include="ext\tesseract\classify\adaptive.h" />
+    <ClInclude Include="ext\tesseract\classify\classify.h" />
+    <ClInclude Include="ext\tesseract\classify\cluster.h" />
+    <ClInclude Include="ext\tesseract\classify\clusttool.h" />
+    <ClInclude Include="ext\tesseract\classify\featdefs.h" />
+    <ClInclude Include="ext\tesseract\classify\float2int.h" />
+    <ClInclude Include="ext\tesseract\classify\fpoint.h" />
+    <ClInclude Include="ext\tesseract\classify\intfeaturespace.h" />
+    <ClInclude Include="ext\tesseract\classify\intfx.h" />
+    <ClInclude Include="ext\tesseract\classify\intmatcher.h" />
+    <ClInclude Include="ext\tesseract\classify\intproto.h" />
+    <ClInclude Include="ext\tesseract\classify\kdtree.h" />
+    <ClInclude Include="ext\tesseract\classify\mf.h" />
+    <ClInclude Include="ext\tesseract\classify\mfdefs.h" />
+    <ClInclude Include="ext\tesseract\classify\mfoutline.h" />
+    <ClInclude Include="ext\tesseract\classify\mfx.h" />
+    <ClInclude Include="ext\tesseract\classify\normfeat.h" />
+    <ClInclude Include="ext\tesseract\classify\normmatch.h" />
+    <ClInclude Include="ext\tesseract\classify\ocrfeatures.h" />
+    <ClInclude Include="ext\tesseract\classify\outfeat.h" />
+    <ClInclude Include="ext\tesseract\classify\picofeat.h" />
+    <ClInclude Include="ext\tesseract\classify\protos.h" />
+    <ClInclude Include="ext\tesseract\classify\shapeclassifier.h" />
+    <ClInclude Include="ext\tesseract\classify\shapetable.h" />
+    <ClInclude Include="ext\tesseract\classify\tessclassifier.h" />
+    <ClInclude Include="ext\tesseract\classify\trainingsample.h" />
+    <ClInclude Include="ext\tesseract\cutil\bitvec.h" />
+    <ClInclude Include="ext\tesseract\cutil\oldlist.h" />
+    <ClInclude Include="ext\tesseract\dict\dawg.h" />
+    <ClInclude Include="ext\tesseract\dict\dawg_cache.h" />
+    <ClInclude Include="ext\tesseract\dict\dict.h" />
+    <ClInclude Include="ext\tesseract\dict\matchdefs.h" />
+    <ClInclude Include="ext\tesseract\dict\stopper.h" />
+    <ClInclude Include="ext\tesseract\dict\trie.h" />
+    <ClInclude Include="ext\tesseract\export.h" />
+    <ClInclude Include="ext\tesseract\lstm\convolve.h" />
+    <ClInclude Include="ext\tesseract\lstm\fullyconnected.h" />
+    <ClInclude Include="ext\tesseract\lstm\functions.h" />
+    <ClInclude Include="ext\tesseract\lstm\input.h" />
+    <ClInclude Include="ext\tesseract\lstm\lstm.h" />
+    <ClInclude Include="ext\tesseract\lstm\lstmrecognizer.h" />
+    <ClInclude Include="ext\tesseract\lstm\maxpool.h" />
+    <ClInclude Include="ext\tesseract\lstm\network.h" />
+    <ClInclude Include="ext\tesseract\lstm\networkio.h" />
+    <ClInclude Include="ext\tesseract\lstm\networkscratch.h" />
+    <ClInclude Include="ext\tesseract\lstm\parallel.h" />
+    <ClInclude Include="ext\tesseract\lstm\plumbing.h" />
+    <ClInclude Include="ext\tesseract\lstm\recodebeam.h" />
+    <ClInclude Include="ext\tesseract\lstm\reconfig.h" />
+    <ClInclude Include="ext\tesseract\lstm\reversed.h" />
+    <ClInclude Include="ext\tesseract\lstm\series.h" />
+    <ClInclude Include="ext\tesseract\lstm\static_shape.h" />
+    <ClInclude Include="ext\tesseract\lstm\stridemap.h" />
+    <ClInclude Include="ext\tesseract\lstm\weightmatrix.h" />
+    <ClInclude Include="ext\tesseract\ltrresultiterator.h" />
+    <ClInclude Include="ext\tesseract\ocrclass.h" />
+    <ClInclude Include="ext\tesseract\osdetect.h" />
+    <ClInclude Include="ext\tesseract\pageiterator.h" />
+    <ClInclude Include="ext\tesseract\publictypes.h" />
+    <ClInclude Include="ext\tesseract\renderer.h" />
+    <ClInclude Include="ext\tesseract\resultiterator.h" />
+    <ClInclude Include="ext\tesseract\textord\alignedblob.h" />
+    <ClInclude Include="ext\tesseract\textord\baselinedetect.h" />
+    <ClInclude Include="ext\tesseract\textord\bbgrid.h" />
+    <ClInclude Include="ext\tesseract\textord\blkocc.h" />
+    <ClInclude Include="ext\tesseract\textord\blobgrid.h" />
+    <ClInclude Include="ext\tesseract\textord\ccnontextdetect.h" />
+    <ClInclude Include="ext\tesseract\textord\cjkpitch.h" />
+    <ClInclude Include="ext\tesseract\textord\colfind.h" />
+    <ClInclude Include="ext\tesseract\textord\colpartition.h" />
+    <ClInclude Include="ext\tesseract\textord\colpartitiongrid.h" />
+    <ClInclude Include="ext\tesseract\textord\colpartitionset.h" />
+    <ClInclude Include="ext\tesseract\textord\devanagari_processing.h" />
+    <ClInclude Include="ext\tesseract\textord\drawtord.h" />
+    <ClInclude Include="ext\tesseract\textord\edgblob.h" />
+    <ClInclude Include="ext\tesseract\textord\edgloop.h" />
+    <ClInclude Include="ext\tesseract\textord\equationdetectbase.h" />
+    <ClInclude Include="ext\tesseract\textord\fpchop.h" />
+    <ClInclude Include="ext\tesseract\textord\gap_map.h" />
+    <ClInclude Include="ext\tesseract\textord\imagefind.h" />
+    <ClInclude Include="ext\tesseract\textord\linefind.h" />
+    <ClInclude Include="ext\tesseract\textord\makerow.h" />
+    <ClInclude Include="ext\tesseract\textord\oldbasel.h" />
+    <ClInclude Include="ext\tesseract\textord\pithsync.h" />
+    <ClInclude Include="ext\tesseract\textord\pitsync1.h" />
+    <ClInclude Include="ext\tesseract\textord\scanedg.h" />
+    <ClInclude Include="ext\tesseract\textord\sortflts.h" />
+    <ClInclude Include="ext\tesseract\textord\strokewidth.h" />
+    <ClInclude Include="ext\tesseract\textord\tabfind.h" />
+    <ClInclude Include="ext\tesseract\textord\tablefind.h" />
+    <ClInclude Include="ext\tesseract\textord\tablerecog.h" />
+    <ClInclude Include="ext\tesseract\textord\tabvector.h" />
+    <ClInclude Include="ext\tesseract\textord\textlineprojection.h" />
+    <ClInclude Include="ext\tesseract\textord\textord.h" />
+    <ClInclude Include="ext\tesseract\textord\topitch.h" />
+    <ClInclude Include="ext\tesseract\textord\tordmain.h" />
+    <ClInclude Include="ext\tesseract\textord\tovars.h" />
+    <ClInclude Include="ext\tesseract\textord\underlin.h" />
+    <ClInclude Include="ext\tesseract\textord\wordseg.h" />
+    <ClInclude Include="ext\tesseract\textord\workingpartset.h" />
+    <ClInclude Include="ext\tesseract\unichar.h" />
+    <ClInclude Include="ext\tesseract\version.h" />
+    <ClInclude Include="ext\tesseract\viewer\scrollview.h" />
+    <ClInclude Include="ext\tesseract\viewer\svmnode.h" />
+    <ClInclude Include="ext\tesseract\viewer\svutil.h" />
+    <ClInclude Include="ext\tesseract\wordrec\associate.h" />
+    <ClInclude Include="ext\tesseract\wordrec\chop.h" />
+    <ClInclude Include="ext\tesseract\wordrec\drawfx.h" />
+    <ClInclude Include="ext\tesseract\wordrec\findseam.h" />
+    <ClInclude Include="ext\tesseract\wordrec\language_model.h" />
+    <ClInclude Include="ext\tesseract\wordrec\lm_consistency.h" />
+    <ClInclude Include="ext\tesseract\wordrec\lm_pain_points.h" />
+    <ClInclude Include="ext\tesseract\wordrec\lm_state.h" />
+    <ClInclude Include="ext\tesseract\wordrec\outlines.h" />
+    <ClInclude Include="ext\tesseract\wordrec\params_model.h" />
+    <ClInclude Include="ext\tesseract\wordrec\plotedges.h" />
+    <ClInclude Include="ext\tesseract\wordrec\render.h" />
+    <ClInclude Include="ext\tesseract\wordrec\wordrec.h" />
     <ClInclude Include="src\base\base.h" />
-    <ClInclude Include="src\base\clipboard\screen.h" />
     <ClInclude Include="src\base\main\main.h" />
     <ClInclude Include="src\base\network\net.h" />
-    <ClInclude Include="src\base\parsing\parse.h" />
+    <ClInclude Include="src\base\parsing\reverso\reverso.h" />
+    <ClInclude Include="src\base\screen\screen.h" />
     <ClInclude Include="src\base\tesseract\extract.h" />
     <ClInclude Include="src\base\utils\logger.h" />
   </ItemGroup>

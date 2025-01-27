@@ -7,46 +7,31 @@ void Base::Init()
     CaptureClickCoordinates();
     NormalizeCoordinates();
 
-    Screen::SaveScreenshot(m_StartPoint, m_EndPoint);
+    Screen::Init(m_StartPoint, m_EndPoint);
 
-    m_CurrentClipboard = SanitizeString(Extract::ExtractText());
+    m_CurrentText = SanitizeString(Extract::ExtractText());
 }
 
 void Base::Loop()
+{    
+    Screen::Loop();
+
+    const std::string newInput = SanitizeString(Extract::ExtractText());
+
+    if (newInput == m_CurrentText || newInput.empty()) return;
+
+    m_CurrentText = newInput;
+
+    system("cls");
+
+    std::cout << "Input  : " << m_CurrentText << std::endl;
+
+    Reverso::Loop();
+}
+
+std::string Base::GetCurrentText()
 {
-    Screen::SaveScreenshot(m_StartPoint, m_EndPoint);
-
-    std::string newInput = SanitizeString(Extract::ExtractText());
-
-    if (newInput == m_CurrentClipboard || newInput.empty()) return;
-
-    m_CurrentClipboard = newInput;
-
-    const std::string response = Network::POST(m_ApiUrl, m_RequestPart1 + m_CurrentClipboard + m_RequestPart2);
-
-    std::string correctedText = Parse::ParseResponse(response);
-    std::string errorDetails = Parse::ParseError(response);
-
-    SetConsoleColor(6, 0);
-    std::cout << "==========================" << std::endl;
-
-    SetConsoleColor(correctedText == m_CurrentClipboard ? 2 : 4, 0);
-
-    std::cout << "Input: " << m_CurrentClipboard << std::endl;
-
-    if (!correctedText.empty() && correctedText.back() == '\n') correctedText.pop_back();
-        
-    std::cout << "Output: " << correctedText << std::endl;
-
-    if (!errorDetails.empty())
-    {
-        if (errorDetails.back() == '\n') errorDetails.pop_back();
-            
-        std::cout << errorDetails << std::endl;
-    }
-
-    SetConsoleColor(6, 0);
-    std::cout << "==========================" << std::endl;
+    return m_CurrentText;
 }
 
 void Base::SetConsoleColor(size_t textColor, size_t bgColor)
@@ -58,12 +43,26 @@ void Base::SetConsoleColor(size_t textColor, size_t bgColor)
 std::string Base::SanitizeString(const std::string& input)
 {
     std::string sanitized = input;
+
     for (char& c : sanitized)
     {
         if (c == '\n') c = ' ';
     }
+
+    size_t pos;
+    while ((pos = sanitized.find("  ")) != std::string::npos)
+    {
+        sanitized.replace(pos, 2, " ");
+    }
+
+    if (!sanitized.empty() && sanitized[sanitized.size() - 1] == ' ')
+    {
+        sanitized.pop_back();
+    }
+
     return sanitized;
 }
+
 
 void Base::CaptureClickCoordinates()
 {
