@@ -21,3 +21,6 @@ Il utilise cURL, nlohmann et l'API Tesseract.
 ## Notes  
 - Compatible uniquement avec **Windows**.  
 - Projet en cours : contributions et signalements de bugs bienvenus !  
+
+## API actuelles
+- Reverso
