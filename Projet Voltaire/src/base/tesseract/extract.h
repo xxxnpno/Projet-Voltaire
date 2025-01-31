@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../src/base/utils/logger.h"
+#include "../../src/base/base.h"
 
 #include <string>
 

@@ -6,7 +6,7 @@ size_t Network::WriteCallback(void* contents, size_t size, size_t nmemb, void* u
     return size * nmemb;
 }
 
-std::string Network::POST(const std::string& url, const std::string& data)
+std::string Network::POST(const std::string& url, const std::string& data, const std::vector<std::string>& headers)
 {
     CURL* curl;
     CURLcode res;
@@ -19,14 +19,16 @@ std::string Network::POST(const std::string& url, const std::string& data)
         return "";
     }
 
-    struct curl_slist* headers = nullptr;
-    headers = curl_slist_append(headers, "Content-Type: application/json");
-    headers = curl_slist_append(headers, "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+    struct curl_slist* curlHeaders = nullptr;
+    for (const auto& header : headers)
+    {
+        curlHeaders = curl_slist_append(curlHeaders, header.c_str());
+    }
 
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
     curl_easy_setopt(curl, CURLOPT_POST, 1L);
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());
-    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, curlHeaders);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 
@@ -39,7 +41,7 @@ std::string Network::POST(const std::string& url, const std::string& data)
         std::cerr << Logger::Error() << "Data: " << data << std::endl;
     }
 
-    curl_slist_free_all(headers);
+    curl_slist_free_all(curlHeaders);
     curl_easy_cleanup(curl);
 
     return response;

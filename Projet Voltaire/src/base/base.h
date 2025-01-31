@@ -1,9 +1,12 @@
 #pragma once
 
-#include "../../src/base/screen/screen.h"
 #include "../../src/base/network/net.h"
 #include "../../src/base/parsing/reverso/reverso.h"
+#include "../../src/base/parsing/scribens/scribens.h"
+#include "../../src/base/screen/screen.h"
 #include "../../src/base/tesseract/extract.h"
+#include "../../src/base/utils/encode.h"
+#include "../../src/base/utils/logger.h"
 
 #include <thread>
 #include <chrono>

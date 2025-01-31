@@ -9,7 +9,7 @@ void Base::Init()
 
     Screen::Init(m_StartPoint, m_EndPoint);
 
-    m_CurrentText = SanitizeString(Extract::ExtractText());
+    std::cout << Logger::Info() << "Wating for text!" << std::endl;
 }
 
 void Base::Loop()
@@ -27,6 +27,7 @@ void Base::Loop()
     std::cout << "Input  : " << m_CurrentText << std::endl;
 
     Reverso::Loop();
+    //Scribens::Loop();
 }
 
 std::string Base::GetCurrentText()

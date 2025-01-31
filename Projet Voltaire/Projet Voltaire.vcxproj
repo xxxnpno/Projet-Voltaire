@@ -149,8 +149,10 @@
     <ClCompile Include="src\base\main\main.cpp" />
     <ClCompile Include="src\base\network\net.cpp" />
     <ClCompile Include="src\base\parsing\reverso\reverso.cpp" />
+    <ClCompile Include="src\base\parsing\scribens\scribens.cpp" />
     <ClCompile Include="src\base\screen\screen.cpp" />
     <ClCompile Include="src\base\tesseract\extract.cpp" />
+    <ClCompile Include="src\base\utils\encode.cpp" />
     <ClCompile Include="src\base\utils\logger.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -461,8 +463,10 @@
     <ClInclude Include="src\base\main\main.h" />
     <ClInclude Include="src\base\network\net.h" />
     <ClInclude Include="src\base\parsing\reverso\reverso.h" />
+    <ClInclude Include="src\base\parsing\scribens\scribens.h" />
     <ClInclude Include="src\base\screen\screen.h" />
     <ClInclude Include="src\base\tesseract\extract.h" />
+    <ClInclude Include="src\base\utils\encode.h" />
     <ClInclude Include="src\base\utils\logger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,7 +2,9 @@
 
 void Reverso::Loop()
 {
-    const std::string reversoResponse = Network::POST(m_ApiUrl, m_RequestPart1 + Base::GetCurrentText() + m_RequestPart2);
+    const std::string payload = m_RequestPart1 + Base::GetCurrentText() + m_RequestPart2;
+    
+    const std::string reversoResponse = Network::POST(m_ApiUrl, payload, m_Headers);
 
     nlohmann::json jsonResponse = nlohmann::json::parse(reversoResponse);
 
