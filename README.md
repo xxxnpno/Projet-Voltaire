@@ -7,7 +7,7 @@ Il utilise cURL, nlohmann et l'API Tesseract.
 - Extrait le texte d'une zone de l'écran en boucle.  
 - Envoie ce texte à différentes API pour détecter et corriger les erreurs.  
 - Affiche les résultats dans le terminal.  
-- Précision estimée à 80 % (vérification manuelle recommandée).  
+- Précision estimée à 85% minimun (vérification manuelle recommandée). 
 
 ## Installation  
 1. Téléchargez le fichier `.exe`.  
@@ -24,3 +24,4 @@ Il utilise cURL, nlohmann et l'API Tesseract.
 
 ## API actuelles
 - Reverso
+- LanguageTool
