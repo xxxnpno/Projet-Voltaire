@@ -7,7 +7,7 @@ Il utilise cURL, nlohmann et l'API Tesseract.
 - Extrait le texte d'une zone de l'écran en boucle.  
 - Envoie ce texte à différentes API pour détecter et corriger les erreurs.  
 - Affiche les résultats dans le terminal.  
-- Précision estimée à 85% minimun (vérification manuelle recommandée). 
+- Précision estimée à ~90% minimun (vérification manuelle recommandée). 
 
 ## Installation  
 1. Téléchargez le fichier `.exe` ou compiler le projet.
@@ -17,6 +17,8 @@ Il utilise cURL, nlohmann et l'API Tesseract.
 1. Lancez le programme.  
 2. Sélectionnez la zone de l'écran à capturer à l'aide de deux clics.  
 3. Consultez les corrections dans le terminal à chaque fois qu'un nouveau texte apparaît.
+
+Vidéo explicative : https://youtu.be/BtBTKDrvUZg
 
 ## Notes  
 - Compatible uniquement avec **Windows**.  
