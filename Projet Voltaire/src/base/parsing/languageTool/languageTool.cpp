@@ -31,6 +31,6 @@ void LanguageTool::Loop()
     }
     catch (const std::exception& e)
     {
-        std::cerr << Logger::Error() << "Reverso: " << e.what() << std::endl;
+        std::cerr << Logger::Error() << "LanguageTool: " << e.what() << std::endl;
     }
 }
