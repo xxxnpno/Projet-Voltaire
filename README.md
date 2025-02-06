@@ -10,7 +10,7 @@ Il utilise cURL, nlohmann et l'API Tesseract.
 - Précision estimée à 85% minimun (vérification manuelle recommandée). 
 
 ## Installation  
-1. Téléchargez le fichier `.exe`.  
+1. Téléchargez le fichier `.exe` ou compiler le projet.
 2. Placez le fichier `fra.traineddata` (Tesseract) dans le même dossier que l'exécutable.  
 
 ## Utilisation  
