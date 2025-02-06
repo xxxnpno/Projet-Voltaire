@@ -24,9 +24,6 @@
     <ClCompile Include="src\base\network\net.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\base\parsing\reverso\reverso.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="src\base\screen\screen.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -36,10 +33,13 @@
     <ClCompile Include="src\base\utils\logger.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\base\parsing\scribens\scribens.cpp">
+    <ClCompile Include="src\base\utils\encode.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\base\utils\encode.cpp">
+    <ClCompile Include="src\base\parsing\reverso\reverso.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\base\parsing\languageTool\languageTool.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,9 +51,6 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="src\base\network\net.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="src\base\parsing\reverso\reverso.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="src\base\screen\screen.h">
@@ -974,10 +971,25 @@
     <ClInclude Include="ext\leptonica\watershed.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\parsing\scribens\scribens.h">
+    <ClInclude Include="src\base\utils\encode.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="src\base\utils\encode.h">
+    <ClInclude Include="src\base\parsing\reverso\reverso.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\ollama-hpp\Base64.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\ollama-hpp\httplib.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\ollama-hpp\json.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\ollama-hpp\ollama.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\parsing\languageTool\languageTool.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

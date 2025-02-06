@@ -23,11 +23,11 @@ void Base::Loop()
     m_CurrentText = newInput;
 
     system("cls");
-
-    std::cout << "Input  : " << m_CurrentText << std::endl;
+    
+    std::cout << "Input: " << m_CurrentText << std::endl;
 
     Reverso::Loop();
-    //Scribens::Loop();
+    LanguageTool::Loop();
 }
 
 std::string Base::GetCurrentText()
@@ -60,10 +60,8 @@ std::string Base::SanitizeString(const std::string& input)
     {
         sanitized.pop_back();
     }
-
     return sanitized;
 }
-
 
 void Base::CaptureClickCoordinates()
 {

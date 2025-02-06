@@ -146,10 +146,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\base\base.cpp" />
+    <ClCompile Include="src\base\parsing\languageTool\languageTool.cpp" />
+    <ClCompile Include="src\base\parsing\reverso\reverso.cpp" />
     <ClCompile Include="src\base\main\main.cpp" />
     <ClCompile Include="src\base\network\net.cpp" />
-    <ClCompile Include="src\base\parsing\reverso\reverso.cpp" />
-    <ClCompile Include="src\base\parsing\scribens\scribens.cpp" />
     <ClCompile Include="src\base\screen\screen.cpp" />
     <ClCompile Include="src\base\tesseract\extract.cpp" />
     <ClCompile Include="src\base\utils\encode.cpp" />
@@ -249,6 +249,10 @@
     <ClInclude Include="ext\nlohmann\ordered_map.hpp" />
     <ClInclude Include="ext\nlohmann\thirdparty\hedley\hedley.hpp" />
     <ClInclude Include="ext\nlohmann\thirdparty\hedley\hedley_undef.hpp" />
+    <ClInclude Include="ext\ollama-hpp\Base64.h" />
+    <ClInclude Include="ext\ollama-hpp\httplib.h" />
+    <ClInclude Include="ext\ollama-hpp\json.hpp" />
+    <ClInclude Include="ext\ollama-hpp\ollama.hpp" />
     <ClInclude Include="ext\tesseract\api\pdf_ttf.h" />
     <ClInclude Include="ext\tesseract\arch\dotproduct.h" />
     <ClInclude Include="ext\tesseract\arch\intsimdmatrix.h" />
@@ -460,10 +464,10 @@
     <ClInclude Include="ext\tesseract\wordrec\render.h" />
     <ClInclude Include="ext\tesseract\wordrec\wordrec.h" />
     <ClInclude Include="src\base\base.h" />
+    <ClInclude Include="src\base\parsing\languageTool\languageTool.h" />
+    <ClInclude Include="src\base\parsing\reverso\reverso.h" />
     <ClInclude Include="src\base\main\main.h" />
     <ClInclude Include="src\base\network\net.h" />
-    <ClInclude Include="src\base\parsing\reverso\reverso.h" />
-    <ClInclude Include="src\base\parsing\scribens\scribens.h" />
     <ClInclude Include="src\base\screen\screen.h" />
     <ClInclude Include="src\base\tesseract\extract.h" />
     <ClInclude Include="src\base\utils\encode.h" />
