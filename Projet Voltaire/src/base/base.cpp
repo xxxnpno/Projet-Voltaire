@@ -24,7 +24,7 @@ void Base::Loop()
 
     system("cls");
     
-    std::cout << "Input: " << m_CurrentText << std::endl;
+    std::cout << Logger::Info() << "Input: " << m_CurrentText << std::endl;
 
     Reverso::Loop();
     LanguageTool::Loop();
